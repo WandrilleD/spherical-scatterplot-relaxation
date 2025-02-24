@@ -262,7 +262,7 @@ if __name__ == "__main__":
             data_xyz = latlon_to_xyz(data[:,1], data[:,0]) ## NB: data is lon,lat ... 
             D = {'x': data_xyz[0],'y': data_xyz[1],'z': data_xyz[2] }
             D.update({c : df_pts[c] for c in additional_columns})
-            df = pd.DataFrame( D )
+            df = pd.DataFrame( D , index = df_pts.index )
             
             df.to_csv(f"{args.output_prefix}_round{r}.csv", index=True)
 
